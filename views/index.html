@@ -1,1 +1,50 @@
- 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/cake.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Quotify</title>
+</head>
+<body>
+    <section class="w-full h-fit flex flex-col justify-center items-center gap-20">
+        <nav class="flex items-center justify-between py-4 w-10/12">
+            <span class="flex gap-2 items-center">
+                <img src="/cake.jpg" class="w-10"/>
+                <h3 class="font-semibold text-orange-600">Birthday_Quotify</h3>
+            </span>
+            <span class="flex gap-2 md:gap-14">
+                <a href="/createUser" class="border border-purple-600 text-purple-600 rounded-md px-2 md:px-5 py-1">Create a User</a>
+            </span>
+        </nav>
+
+        <header class="flex flex-col lg:flex-row gap-5 md:gap-10 items-center w-10/12">
+            <section class="lg:w-1/2 flex flex-col gap-5">
+                <h1 class=" text-3xl md:text-3xl lg:text-5xl">
+                    Never <b class="text-purple-600">Miss</b>, 
+                    a Birthday <b class="text-purple-600"> Again!</b>
+                </h1>
+                <p class="text-sm md:text-lg">Never forget a special day again with our convenient reminder service. Ensure you always celebrate those important moments with your loved ones. Don't let birthdays slip your mind – join us today!"</p>
+            </section>
+            <img src="/birthday.svg" class="w-3/4 lg:w-1/2"/>
+        </header>
+
+        <section class="w-10/12 flex flex-col-reverse lg:flex-row items-center">
+            <img src="./celebrant.svg" class="w-1/2"/>
+            <section class="w-full lg:w-1/2 flex flex-col gap-5">
+                <h1 class="text-2xl md:text-4xl">
+                    Stay <b class="text-purple-600">Connected</b>, 
+                    to special <b class="text-purple-600"> Moments!</b>
+                </h1>
+                <p class="text-lg">Join our birthday reminder service and never forget to celebrate the special people in your life. Stay connected, spread joy, and make every birthday unforgettable!</p>
+            </section>
+        </section>
+
+
+
+        <section class="bg-purple-900 text-center w-full py-4">
+            <p class="text-white text-lg">&#169;2024, by Birthday_Quotify ❤️</p>
+        </section>
+    </section>
+</body>
+</html>
