@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+    <link rel="icon" type="image/x-icon" href="/cake.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="w-full h-screen flex justify-center items-center">
+    <section class="w-10/12 h-fit flex flex-col gap-3 justify-center items-center">
+        <img src="404.png" class="w-2/3"/>
+        <section class="w-full flex flex-col gap-10 items-center">
+            <h1 class="text-3xl md:text-5xl text-center">Oops, <%=message%></h1>
+            <p>Something went wrong!</p>
+            <a href="/createUser" class="w-full bg-purple-600 text-white text-center py-2 rounded-md font-bold hover:bg-purple-400">Back</a>
+        </section>
+    </section>
+</body>
+</html>
