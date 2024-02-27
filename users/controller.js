@@ -1,34 +1,30 @@
-const userModel = require("../model/user");
+// const path = require('path');
+const UserModel = require("../model/user");
 
 const createUser = async (req, res) => {
     try {
-        const userInfo = {
-            username: req.body.username,
-            email: req.body.email,
-            dob: req.body.dob
-        };
+        const { username, email, dob } = req.body;
 
         // Basic validation
-        if (!userInfo.username || !userInfo.email || !userInfo.dob) {
-            throw new Error("Missing required fields.");
+        if (!username || !email || !dob) {
+            return res.status(400).render("error", { error: "Missing required fields." });
         }
 
-        const existingUser = await userModel.findOne({ email: userInfo.email });
-
+        // Check if the user already exists
+        const existingUser = await UserModel.findOne({ email });
         if (existingUser) {
-            throw new Error("User already exists.");
+            return res.status(400).render("birthday", { error: "Hey, You already exist.", 
+            passage: "An email will be sent to you, on your special day! Once again, 'Happy Birthday'" });
         }
 
-        const newUser = await userModel.create(userInfo);
-        await newUser.save();
-        
-        return res.status(201).send({ message: "User created successfully.", user: newUser });
+        // Create a new user
+        const newUser = await UserModel.create({ username, email, dob });
+        return res.status(201).render("birthday", { error: `Congratulations ${newUser.username}`, 
+        passage: "An email will be sent to you, on your special day! Once again, 'Happy Birthday'" })
     } 
-    catch (err) {
-        // Log the error for debugging purposes
-        console.error("Error creating user:", err);
-        // Respond with a generic error message
-        return res.status(500).json({ error: "Something went wrong. Please try again later." });
+    catch (error) {
+        console.error("Error creating user:", error);
+        return res.status(500).render("error", { error: "Something went wrong. Please try again later." });
     }
 };
 

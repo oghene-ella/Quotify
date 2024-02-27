@@ -9,15 +9,13 @@ const validateUserInput = (req,res,next)=>{
         })
     
         userSchema.validate(req.body, {abortEarly:true})
-
         next()
-
-    }catch(err){
+    }
+    catch(err){
         res.json({
             error:err.message
         })
     }
-   
 }
 
 module.exports = {validateUserInput}
