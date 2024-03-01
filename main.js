@@ -8,9 +8,7 @@ const cookieParser = require("cookie-parser");
 const userRoute = require("./users/route")
 const userModel = require("./model/user")
 const {connectToDataBase} = require("./config/mongoose")
-const session = require("express-session")
 const cron = require("node-cron")
-const flash = require("connect-flash")
 
 const {sendEmail} = require("./utils/nodemailer")
 const {DateTime} = require("luxon");
@@ -28,15 +26,9 @@ app.set("view engine", "ejs")
 app.set("views", "views")
 
 app.use(cookieParser());
-app.use(session({
-  secret:"ellahhh57",
-  cookie:{maxAge:60000},
-  resave:true,
-  saveUninitialized:true
-}))
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
-app.use(flash())
 
 app.use("/user", userRoute)
 app.use("/public", express.static("public"))
